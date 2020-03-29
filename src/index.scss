@@ -1,0 +1,139 @@
+$primary-color : #74ebd548;
+$secondary-color : #ACB6E5;
+$danger-color : rgb(148, 19, 19);
+$text-color : #fff;
+
+@mixin gradientGenerator() {
+    background: linear-gradient(to right, $primary-color, $secondary-color);
+}
+
+@mixin boxShadowGenerator($color) {
+    box-shadow: -1px 3px 3px 1px $color;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.center-elem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.main-title {
+    text-align: center;
+    color: #333;
+    margin: 10px auto;
+    font-weight: 200;
+}
+
+.counter-container {
+
+    .container-item {
+        @include gradientGenerator();
+        // height: 200px;
+        // width: 200px;
+        // border-radius: 50%;
+
+        height: auto;
+        width: auto;
+        min-width: 200px;
+        min-height: 200px;
+        border-radius: 10px;
+        padding: 10px;
+        @extend .center-elem;
+
+        h3 {
+            color: $text-color;
+            font-size: 5em;
+            font-weight: 100;
+            transition: all 0.4s;
+            align-self: center;
+        }
+    }
+}
+
+.setps-container,
+.counter-container,
+.btn-container {
+    margin: 20px;
+    @extend .center-elem;
+}
+
+.setps-container {
+    flex-direction: column;
+    padding-top: 20px;
+    border-top: 1px solid gainsboro;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.counter-btn {
+    border: none;
+    padding: 16px;
+    // font-size: 16px;
+    font-size: 33px;
+    cursor: pointer;
+    outline: none;
+    background-color: $secondary-color;
+    color: $text-color;
+    border-radius: 10px;
+    min-width: 100px;
+    margin: 10px auto;
+
+    @include boxShadowGenerator($secondary-color);
+
+    &:hover {
+        transition: all 0.1s;
+        box-shadow: 0px 0px 0px 0px #d0cece;
+        @include gradientGenerator();
+    }
+
+    @media screen and (max-width:992px) {
+        padding: 8px;
+        // font-size: 12px;
+        font-size: 20px;
+        margin: 10px;
+    }
+}
+
+.clear {
+    background: $danger-color;
+    @include boxShadowGenerator($danger-color);
+    font-size: 22px;
+
+    &:hover {
+        background: #333;
+    }
+}
+
+.input {
+    border: 1px solid gainsboro;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+    margin: 20px;
+
+    font-size: 2em;
+
+    @media screen and (max-width:992px) {
+        font-size: 1em;
+    }
+}
+
+h3 {
+    font-weight: 200;
+}
